@@ -44,7 +44,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install cspell
-        run: npm install -g cspell@8
+      - name: Install cspell + DE dictionary
+        run: npm install -g cspell@8 @cspell/dict-de-de
       - name: Run cspell
         run: cspell --no-progress "references/**/*.md" "docs/**/*.md" "README.md" "CLAUDE.md"

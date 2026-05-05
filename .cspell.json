@@ -1,6 +1,7 @@
 {
   "version": "0.2",
-  "language": "en,de",
+  "import": ["@cspell/dict-de-de/cspell-ext.json"],
+  "language": "en,de-DE",
   "files": [
     "references/**/*.md",
     "docs/**/*.md",
