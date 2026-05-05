@@ -93,3 +93,49 @@ suggestions:
   - "involved"
 notes: "Overused LLM adjective. 'Complex' or 'detailed' is usually more honest."
 ---
+
+---
+phrase: "it's worth noting"
+language: en
+severity: medium
+category: hedging
+pattern: "\\b[Ii]t['']s worth noting\\b"
+suggestions:
+  - "(remove — usually filler)"
+  - "Note:"
+notes: "Filler. The next sentence carries the actual content."
+---
+
+---
+phrase: "great question"
+language: en
+severity: high
+category: sycophantic
+pattern: "\\b[Gg]reat question\\b"
+suggestions:
+  - "(remove — answer the question directly)"
+notes: "Empty validation. Common LLM opener."
+---
+
+---
+phrase: "certainly"
+language: en
+severity: medium
+category: sycophantic
+pattern: "^Certainly[!,]"
+suggestions:
+  - "(remove — start with the answer)"
+notes: "LLM opener. Almost always strippable."
+---
+
+---
+phrase: "in conclusion"
+language: en
+severity: medium
+category: transition
+pattern: "\\b[Ii]n conclusion\\b"
+suggestions:
+  - "(remove — let the conclusion stand on its own)"
+  - "So"
+notes: "School-essay phrase. Reads as AI when concluding short pieces."
+---
