@@ -1,0 +1,36 @@
+{
+  "version": "0.2",
+  "language": "en,de",
+  "files": [
+    "references/**/*.md",
+    "docs/**/*.md",
+    "README.md",
+    "CLAUDE.md"
+  ],
+  "ignorePaths": [
+    "node_modules/",
+    ".git/",
+    "tests/fixtures/**",
+    "docs/superpowers/**"
+  ],
+  "words": [
+    "neckarshore",
+    "obsidian",
+    "kebab",
+    "shellcheck",
+    "yq",
+    "POSIX",
+    "TSV",
+    "BYOK",
+    "regex",
+    "frontmatter",
+    "Claude",
+    "vercel",
+    "tapestry",
+    "Substantivierung",
+    "Floskel",
+    "Floskeln",
+    "tauchen",
+    "Bandwurmsätze"
+  ]
+}

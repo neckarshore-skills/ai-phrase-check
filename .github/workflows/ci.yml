@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install yq
+        run: |
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+          sudo chmod +x /usr/local/bin/yq
+          yq --version
+
+      - name: Install bats
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y bats
+
+      - name: Install shellcheck
+        run: sudo apt-get install -y shellcheck
+
+      - name: Run shellcheck
+        run: |
+          cd scripts
+          shellcheck -x detect.sh apply.sh lib/parse-phrases.sh
+
+      - name: Run bats tests
+        run: |
+          bats tests/parse-phrases.bats
+          bats tests/detect.bats
+          bats tests/apply.bats
+
+  cspell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install cspell
+        run: npm install -g cspell@8
+      - name: Run cspell
+        run: cspell --no-progress "references/**/*.md" "docs/**/*.md" "README.md" "CLAUDE.md"
