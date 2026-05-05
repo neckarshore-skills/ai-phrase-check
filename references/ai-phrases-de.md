@@ -7,7 +7,7 @@ phrase: "tauchen wir ein in"
 language: de
 severity: high
 category: transition
-pattern: "\\btauchen wir ein in\\b"
+pattern: "\\b[Tt]auchen wir ein in\\b"
 suggestions:
   - "schauen wir uns ... an"
   - "betrachten wir"
@@ -20,7 +20,7 @@ phrase: "im Bereich der"
 language: de
 severity: medium
 category: filler
-pattern: "\\bim Bereich der\\b"
+pattern: "\\b[Ii]m Bereich der\\b"
 suggestions:
   - "in der ..."
   - "bei ..."
@@ -33,7 +33,7 @@ phrase: "es ist wichtig zu erwähnen"
 language: de
 severity: medium
 category: hedging
-pattern: "\\bes ist wichtig zu erwähnen\\b"
+pattern: "\\b[Ee]s ist wichtig zu erwähnen\\b"
 suggestions:
   - "erwähnenswert:"
   - "(weglassen — meist Füllphrase)"
