@@ -22,7 +22,8 @@ setup() {
 @test "parse_phrases reads DE list and outputs TSV" {
     run parse_phrases "$REPO_ROOT/references/ai-phrases-de.md"
     [ "$status" -eq 0 ]
-    [ "$(echo "$output" | wc -l | tr -d ' ')" -eq 3 ]
+    # 8 phrases (3 seed + 5 batch 1)
+    [ "$(echo "$output" | wc -l | tr -d ' ')" -eq 8 ]
     first_line="$(echo "$output" | head -1)"
     [[ "$first_line" == "tauchen wir ein in"* ]]
 }
