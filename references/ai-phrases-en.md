@@ -41,3 +41,55 @@ suggestions:
   - "(remove entirely)"
 notes: "Used metaphorically by LLMs to mean 'variety'. Almost always reads as AI-generated."
 ---
+
+---
+phrase: "navigate the landscape"
+language: en
+severity: high
+category: lexical
+pattern: "\\bnavigate the landscape\\b"
+suggestions:
+  - "work in this space"
+  - "operate in this market"
+  - "(rephrase concretely)"
+notes: "Empty business-speak metaphor. Almost always vague."
+---
+
+---
+phrase: "in the realm of"
+language: en
+severity: high
+category: filler
+pattern: "\\b[Ii]n the realm of\\b"
+suggestions:
+  - "in"
+  - "for"
+  - "(remove)"
+notes: "Stilted. 'In' or 'for' is almost always sufficient."
+---
+
+---
+phrase: "moreover"
+language: en
+severity: medium
+category: transition
+pattern: "\\b[Mm]oreover\\b"
+suggestions:
+  - "(start a new sentence with the actual point)"
+  - "Also,"
+  - "And"
+notes: "Used to artificially link unrelated points. Often signals filler."
+---
+
+---
+phrase: "intricate"
+language: en
+severity: medium
+category: lexical
+pattern: "\\bintricate\\b"
+suggestions:
+  - "complex"
+  - "detailed"
+  - "involved"
+notes: "Overused LLM adjective. 'Complex' or 'detailed' is usually more honest."
+---

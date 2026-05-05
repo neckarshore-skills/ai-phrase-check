@@ -9,8 +9,8 @@ setup() {
 @test "parse_phrases reads EN list and outputs TSV" {
     run parse_phrases "$REPO_ROOT/references/ai-phrases-en.md"
     [ "$status" -eq 0 ]
-    # Three phrases in seed list
-    [ "$(echo "$output" | wc -l | tr -d ' ')" -eq 3 ]
+    # 7 phrases (3 seed + 4 batch 1)
+    [ "$(echo "$output" | wc -l | tr -d ' ')" -eq 7 ]
     # First phrase is "delve into"
     first_line="$(echo "$output" | head -1)"
     [[ "$first_line" == "delve into"* ]]
