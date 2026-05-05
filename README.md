@@ -2,7 +2,7 @@
 
 > Detect AI-typical phrases in your writing — in English and German — and replace them with more human alternatives.
 
-**Status:** Pre-v0.1 — design phase. See [the design spec](docs/superpowers/specs/2026-05-05-ai-phrase-check-design.md) for what is being built.
+**Status:** v0.1 — implementation in progress. See [the design spec](docs/superpowers/specs/2026-05-05-ai-phrase-check-design.md) and [Plan A (skill MVP)](docs/superpowers/plans/2026-05-05-plan-a-skill-mvp.md).
 
 ## What This Is
 
