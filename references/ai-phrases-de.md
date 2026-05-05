@@ -97,3 +97,52 @@ suggestions:
   - "(mit konkreten Aussagen ersetzen)"
 notes: "Marketing-Phrase. Konkret werden oder weglassen."
 ---
+
+---
+phrase: "nahtlos"
+language: de
+severity: medium
+category: lexical
+pattern: "\\bnahtlos\\b"
+suggestions:
+  - "(weglassen — meist Füllwort)"
+  - "reibungslos"
+notes: "Direkte Übersetzung von 'seamlessly'. Selten substanziell."
+---
+
+---
+phrase: "umfassend"
+language: de
+severity: low
+category: lexical
+pattern: "\\bumfassend\\w*\\b"
+suggestions:
+  - "vollständig"
+  - "gründlich"
+  - "(weglassen)"
+notes: "Allzweck-Adjektiv. Pattern matcht inflektierte Formen (umfassend, umfassende, umfassender, umfassendes). Meist durch konkretere Aussage ersetzbar."
+---
+
+---
+phrase: "in der heutigen Zeit"
+language: de
+severity: high
+category: filler
+pattern: "\\b[Ii]n der heutigen Zeit\\b"
+suggestions:
+  - "heute"
+  - "(weglassen)"
+notes: "Übersetzung von 'in today's world'. Floskel."
+---
+
+---
+phrase: "spielt eine wichtige Rolle"
+language: de
+severity: medium
+category: hedging
+pattern: "\\bspielt eine wichtige Rolle\\b"
+suggestions:
+  - "ist wichtig für"
+  - "(konkret werden — wofür?)"
+notes: "Vage Wichtigkeits-Behauptung. Konkretisieren."
+---
