@@ -13,3 +13,9 @@ CI iteration notes:
 - Run #1: bats + shellcheck green, cspell rot (159 unknown DE words — no German dictionary loaded)
 - Run #2: imported @cspell/dict-de-de — down to 8 unknowns (regex fragments + domain words)
 - Run #3: added regex fragments and domain words to wordlist — green
+
+## 2026-05-05 — Manual smoke test (Plan A) — User verdict: PASS
+
+- User ran the skill end-to-end and confirmed expected behavior
+- Tagged v0.1.0
+- Plan A complete
