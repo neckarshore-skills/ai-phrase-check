@@ -47,3 +47,27 @@ setup() {
     [ "$status" -eq 0 ]
     [[ "$output" == *"tauchen wir ein in"* ]]
 }
+
+@test "detect.sh auto-mode picks EN for English fixture" {
+    run "$REPO_ROOT/scripts/detect.sh" \
+        "$REPO_ROOT/tests/fixtures/en-positive/delve-into.md"
+    [ "$status" -eq 0 ]
+    [[ "$output" == *"delve into"* ]]
+    [[ "$output" == *"# language: en"* ]]
+}
+
+@test "detect.sh auto-mode picks DE for German fixture" {
+    run "$REPO_ROOT/scripts/detect.sh" \
+        "$REPO_ROOT/tests/fixtures/de-positive/tauchen-wir-ein.md"
+    [ "$status" -eq 0 ]
+    [[ "$output" == *"tauchen wir ein in"* ]]
+    [[ "$output" == *"# language: de"* ]]
+}
+
+@test "detect.sh auto-mode reports zero findings for clean text" {
+    run "$REPO_ROOT/scripts/detect.sh" \
+        "$REPO_ROOT/tests/fixtures/en-negative/clean-pre-2023.md"
+    [ "$status" -eq 0 ]
+    [[ "$output" == *"# language: "* ]]
+    [[ "$output" == *"# findings: 0"* ]]
+}
