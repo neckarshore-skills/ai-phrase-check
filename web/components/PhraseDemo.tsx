@@ -5,8 +5,8 @@ import { detect, type Finding } from '@/lib/detect';
 import { EXAMPLES } from '@/content/examples';
 
 export default function PhraseDemo() {
-  const [text, setText] = useState(EXAMPLES.en);
-  const [debounced, setDebounced] = useState(text);
+  const [text, setText] = useState<string>(EXAMPLES.en);
+  const [debounced, setDebounced] = useState<string>(text);
 
   // 300ms debounce
   useEffect(() => {
