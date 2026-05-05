@@ -139,3 +139,52 @@ suggestions:
   - "So"
 notes: "School-essay phrase. Reads as AI when concluding short pieces."
 ---
+
+---
+phrase: "robust, scalable, and efficient"
+language: en
+severity: high
+category: triplet
+pattern: "\\brobust,? scalable,? and efficient\\b"
+suggestions:
+  - "(rephrase with concrete claims)"
+notes: "Marketing-buzzword triplet. Replace with specifics."
+---
+
+---
+phrase: "leverage"
+language: en
+severity: medium
+category: lexical
+pattern: "\\bleverage\\b"
+suggestions:
+  - "use"
+  - "rely on"
+  - "build on"
+notes: "Business-speak verb. 'Use' is usually clearer."
+---
+
+---
+phrase: "seamlessly"
+language: en
+severity: medium
+category: lexical
+pattern: "\\bseamlessly\\b"
+suggestions:
+  - "(remove — almost always padding)"
+  - "smoothly"
+notes: "Empty intensifier. Strip and verify the sentence still works."
+---
+
+---
+phrase: "comprehensive"
+language: en
+severity: medium
+category: lexical
+pattern: "\\bcomprehensive\\b"
+suggestions:
+  - "complete"
+  - "thorough"
+  - "full"
+notes: "Overused. 'Complete' or 'thorough' is usually more concrete."
+---
