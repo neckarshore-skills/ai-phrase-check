@@ -48,3 +48,18 @@ jobs:
         run: npm install -g cspell@8 @cspell/dict-de-de
       - name: Run cspell
         run: cspell --no-progress "references/**/*.md" "docs/**/*.md" "README.md" "CLAUDE.md"
+
+  web-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Run vitest
+        run: npm test
