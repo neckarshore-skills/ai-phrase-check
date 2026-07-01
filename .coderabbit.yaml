@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+# CodeRabbit configuration. Inert until the CodeRabbit GitHub App is installed on
+# the neckarshore-ai org (tracked as TQ-CODERABBIT-APP, an org-admin user-gate).
+# CodeRabbit reviews only — it never edits code.
+language: "en-US"
+reviews:
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  auto_review:
+    enabled: true
+    drafts: false
