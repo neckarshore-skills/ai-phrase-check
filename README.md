@@ -2,7 +2,7 @@
 
 > Detect AI-typical phrases in your writing — in English and German — and replace them with more human alternatives.
 
-**Status:** v0.1 — implementation in progress. See [the design spec](docs/superpowers/specs/2026-05-05-ai-phrase-check-design.md) and [Plan A (skill MVP)](docs/superpowers/plans/2026-05-05-plan-a-skill-mvp.md).
+**Status:** v0.1.0 shipped — the Claude Code skill is stable and tagged. The Next.js demo site is in progress (core detection + BYOK logic built; landing page and deploy not yet live). See [the design spec](docs/superpowers/specs/2026-05-05-ai-phrase-check-design.md), [Plan A (skill MVP, shipped)](docs/superpowers/plans/2026-05-05-plan-a-skill-mvp.md), and [Plan B (web demo, in progress)](docs/superpowers/plans/2026-05-05-plan-b-frontend.md).
 
 ## What This Is
 
@@ -19,7 +19,9 @@ Writers using LLM tools accumulate AI-typical phrases — "delve into," "tapestr
 
 ## Status
 
-The repository currently contains the design spec only. Implementation begins after spec approval.
+- **Claude Code skill (Plan A):** shipped and stable. Tagged `v0.1.0`. Three-stage flow (Detect → Suggest → Apply), 27 curated phrases (15 EN + 12 DE), full test coverage (bats + parity tests), CI green.
+- **Web demo (Plan B):** in progress. Scaffolding, JS-port detection with parity testing, Stage 1 client-side demo, and BYOK Stage 2 (storage + Anthropic SDK call) are built and committed. Landing page assembly and the Vercel deploy pipeline are not yet done — the demo is not live at a public URL yet.
+- **Repo hardening:** CI covers shell + JS tests, cspell, and CodeQL SAST; Dependabot manages dependency updates; branch protection is active.
 
 ## License
 
