@@ -34,11 +34,21 @@ jobs:
           cd scripts
           shellcheck -x detect.sh apply.sh lib/parse-phrases.sh
 
+      # parity-test.bats compares the bash detector against the JS detector
+      # (cd web && npx tsx ...), so the bats job needs Node + web deps.
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 20
+
+      - name: Install web deps (for the parity JS side)
+        run: npm ci --prefix web
+
       - name: Run bats tests
         run: |
           bats tests/parse-phrases.bats
           bats tests/detect.bats
           bats tests/apply.bats
+          bats tests/parity-test.bats
 
   cspell:
     runs-on: ubuntu-latest
