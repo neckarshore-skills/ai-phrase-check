@@ -23,6 +23,10 @@ Writers using LLM tools accumulate AI-typical phrases — "delve into," "tapestr
 - **Web demo (Plan B):** in progress. Scaffolding, JS-port detection with parity testing, Stage 1 client-side demo, and BYOK Stage 2 (storage + Anthropic SDK call) are built and committed. Landing page assembly and the Vercel deploy pipeline are not yet done — the demo is not live at a public URL yet.
 - **Repo hardening:** CI covers shell + JS tests, cspell, and CodeQL SAST; Dependabot manages dependency updates; branch protection is active.
 
+## Estate test-scope stats
+
+This repo is a **producer** for the neckarshore.ai estate test-count. On every `push:main`, CI counts the two gated test suites (bats bash-detector + vitest web-detector) from each runner's own reporter — never grep — and publishes a contract-valid `stats.json` to the dedicated [`stats-data`](../../tree/stats-data/stats.json) branch: a single-file data branch, **not** `main`. `main` is a protected branch (a bot cannot push to it without weakening its protection), so the machine artifact lives on its own unprotected branch instead. The neckarshore.ai aggregator fetches it via `contents/stats.json?ref=stats-data`. Contract: [`stats-json-contract.md`](https://github.com/neckarshore-ai/neckarshore-planning/blob/main/docs/reference/stats-json-contract.md).
+
 ## License
 
 [MIT](LICENSE)
