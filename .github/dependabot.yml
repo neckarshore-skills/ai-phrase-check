@@ -1,10 +1,34 @@
+# Dependabot config. Grouping follows the estate auto-merge policy (2026-07-10):
+# collapse the safe, self-clearing class into a few grouped PRs and leave anything
+# that needs a human (majors, runtime minors) UNGROUPED so each surfaces on its own.
+#
+#   github-actions : minor + patch grouped; majors individual.
+#   npm (/web)     : dev-dependency minor+patch grouped, prod-dependency patch grouped;
+#                    prod minors and every major stay individual for manual review.
 version: 2
 updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      github-actions-minor-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
   - package-ecosystem: "npm"
     directory: "/web"
     schedule:
       interval: "weekly"
+    groups:
+      npm-dev-minor-patch:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+      npm-prod-patch:
+        dependency-type: "production"
+        update-types:
+          - "patch"
