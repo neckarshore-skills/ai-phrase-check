@@ -1,14 +1,21 @@
 # Dependabot config. Grouping follows the estate auto-merge policy (2026-07-10):
 # collapse the safe, self-clearing class into a few grouped PRs and leave anything
-# that needs a human (majors, runtime minors) UNGROUPED so each surfaces on its own.
+# that needs a human (runtime minors) UNGROUPED so each surfaces on its own. Majors
+# are grouped per ecosystem since 2026-10-23 (#296) and stay manual. Every ecosystem
+# has a 3-day cooldown.
 #
-#   github-actions : minor + patch grouped; majors individual.
+#   github-actions : minor + patch grouped; majors grouped, manual.
 #   npm (/web)     : dev-dependency minor+patch grouped, prod-dependency patch grouped;
-#                    prod minors and every major stay individual for manual review.
+#                    prod minors stay individual; majors grouped, manual.
 version: 2
 updates:
   - package-ecosystem: "github-actions"
     directory: "/"
+    # 3-day cooldown (Founder 2026-10-23, dev-environment #296): a release is only
+    # proposed once it has been public for 3 days, so a pulled or compromised release
+    # has time to be noticed before it is auto-merged. Security updates are not delayed.
+    cooldown:
+      default-days: 3
     schedule:
       interval: "weekly"
     groups:
@@ -18,8 +25,21 @@ updates:
         update-types:
           - "minor"
           - "patch"
+      # Majors, grouped (MASCHIN architect 2026-10-23, #296): one PR for this
+      # ecosystem's majors instead of one each. Still manual, never auto-merged: the safe
+      # class excludes semver-major. LAST so the named groups above keep their own majors.
+      github-actions-major:
+        patterns:
+          - "*"
+        update-types:
+          - "major"
   - package-ecosystem: "npm"
     directory: "/web"
+    # 3-day cooldown (Founder 2026-10-23, dev-environment #296): a release is only
+    # proposed once it has been public for 3 days, so a pulled or compromised release
+    # has time to be noticed before it is auto-merged. Security updates are not delayed.
+    cooldown:
+      default-days: 3
     schedule:
       interval: "weekly"
     groups:
@@ -32,3 +52,11 @@ updates:
         dependency-type: "production"
         update-types:
           - "patch"
+      # Majors, grouped (MASCHIN architect 2026-10-23, #296): one PR for this
+      # ecosystem's majors instead of one each. Still manual, never auto-merged: the safe
+      # class excludes semver-major. LAST so the named groups above keep their own majors.
+      npm-major:
+        patterns:
+          - "*"
+        update-types:
+          - "major"
